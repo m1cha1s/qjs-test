@@ -21,13 +21,13 @@ static JSValue js_console_log(JSContext *ctx, JSValueConst this_val, int argc, J
     return JS_UNDEFINED;
 }
 
-static const JSCFunctionListEntry js_console_funcs[] = {
+static const JSCFunctionListEntry js_fs_funcs[] = {
     JS_CFUNC_DEF("log", 1, js_console_log),
 };
 
 static int js_console_init(JSContext *ctx, JSModuleDef *js_console)
 {
-    return JS_SetModuleExportList(ctx, js_console, js_console_funcs, COUNTOF(js_console_funcs));
+    return JS_SetModuleExportList(ctx, js_console, js_fs_funcs, COUNTOF(js_fs_funcs));
 }
 
 JSModuleDef *js_init_console(JSContext *ctx)
@@ -37,6 +37,6 @@ JSModuleDef *js_init_console(JSContext *ctx)
     if (!js_console)
         return NULL;
 
-    JS_AddModuleExportList(ctx, js_console, js_console_funcs, COUNTOF(js_console_funcs));
+    JS_AddModuleExportList(ctx, js_console, js_fs_funcs, COUNTOF(js_fs_funcs));
     return js_console;
 }

@@ -17,8 +17,9 @@ target_link_libraries(qjs PRIVATE m)
 project(qjs-test)
 
 add_executable(qjs-test
-    main.c
-    console.c
+    src/main.c
+    src/console.c
+    src/fs.c
 )
 
 target_link_libraries(qjs-test PRIVATE qjs)
