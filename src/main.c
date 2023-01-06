@@ -83,7 +83,10 @@ static JSModuleDef *js_module_loader(JSContext *ctx, const char *module_name, vo
 static JSContext *JS_NewCustomContext(JSRuntime *rt)
 {
     JSContext *ctx = JS_NewContext(rt);
+
     js_init_console(ctx);
+    js_init_fs(ctx);
+
     JS_SetModuleLoaderFunc(rt, NULL, js_module_loader, NULL);
 
     return ctx;
